@@ -1,0 +1,1218 @@
+/*
+ * p-5.c
+ *
+ *  Created on: 02-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int leap(int year)
+{
+	if (year%4==0)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+int main()
+{
+	int y;
+	printf("enter the year:-");
+	scanf("%d",&y);
+	int result=leap(y);
+	if(result==0)
+	{
+		printf(" leep year");
+	}
+	else
+	{
+		printf("not leep year");
+	}
+	return 0;
+}
+
+
+/*
+ * p-6.c
+ *
+ *  Created on: 30-Jan-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+int sum(int n)
+{
+	int i=0;
+	while(n!=0)
+	{
+
+		i=i+n%10;
+		n=n/10;
+	}
+	return i;
+}
+
+int main()
+{
+	int num;
+	printf("enter your number:-");
+	scanf("%d",&num);
+	int result=sum(num);
+	printf("sum of all elements:-%d",result);
+
+	return 0;
+}
+
+/*
+ * p-7.c
+ *
+ *  Created on: 02-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int prime(int num)
+{
+	int n=n/2;
+	for(int i=2;i<=n;i++)
+	{
+		if(n%i==0)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int main()
+{
+	int n;
+	printf("enter the value:-");
+    scanf("%d",&n);
+    if (prime(n))
+		{
+    	printf("%d prime number\n",n);
+		}
+    else
+    {
+    	printf("%d not a prime number\n",n);
+    }
+    return 0;
+}
+
+
+/*
+ * p-8.c
+ *
+ *  Created on: 15-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int a(int orgnum)
+{
+	int r=0;
+	int s=0;
+	int p=0;
+	int n=orgnum;
+	while(n!=0)
+	{
+		r=n%10;
+		p=r*r*r;
+		s=s+p;
+		n=n/10;
+	}
+	if(s==orgnum)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+int main()
+{
+	int num;
+	printf("enter the number:-");
+	scanf("%d",&num);
+	if(a(num)==0)
+	{
+		printf("%d is armstrong number",num);
+
+	}
+	else
+	{
+		printf("%d is not armstrong number",num);
+	}
+	return 0;
+}
+
+
+/*
+ * p-9.c
+ *
+ *  Created on: 08-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+
+int fact(int n)
+{
+	if(n==0 || n==1)
+	{
+		return 1;
+	}
+	else
+	{
+		return n*fact(n-1);
+	}
+}
+
+int main()
+{
+	int n;
+	printf("enter your numbe:-");
+	scanf("%d",&n);
+	if(n<0)
+	{
+		printf("fact is not defined fornagative number:-");
+
+	}
+	else
+	{
+		int result=fact(n);
+		printf("%d",result);
+	}
+	return 0;
+}
+
+/*
+ * p-10.c
+ *
+ *  Created on: 08-Feb-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+
+void aa(int a[],int n)
+{
+	int i,j,temp;
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(a[i]>a[j])
+			{
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+}
+
+
+void ad(int a[],int n)
+{
+	int i,j,temp;
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(a[i]<a[j])
+			{
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+}
+
+int main()
+{
+	int a[100]={12,13,14,15,16};
+	int n=sizeof(a[0]);
+
+	printf("show the elements:-");
+	for(int i=0;i<n;i++)
+	{
+		printf("%d",a[i]);
+	}
+	printf("\n");
+
+
+	aa(a,n);
+	printf("array in assending order:-");
+	for(int i=0;i<n;i++)
+	{
+		printf("%d",a[i]);
+	}
+	printf("\n");
+
+	ad(a,n);
+		printf("array in dessanding order:-");
+		for(int i=0;i<n;i++)
+		{
+			printf("%d",a[i]);
+		}
+		printf("\n");
+		return 0;
+
+}
+
+/*
+ * p-11.c
+ *
+ *  Created on: 30-Jan-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+void displaynumber(int num[3][3]);
+
+int main()
+{
+	int num[3][3],temp;
+	printf("enter your elements:-\n");
+	for(int i=1;i<=3;i++)
+	{
+		for(int j=1;j<=3;j++)
+		{
+			printf("enter the value:-[%d][%d]",i,j);
+			scanf("%d",&num[i][j]);
+		}
+		printf("\n");
+	}
+
+	for(int i=1;i<=3;i++)
+	{
+		for(int j=1;j<=3;j++)
+		{
+			for(int k=0;k<=3;k++)
+			{
+				if(num[i][j]<num[j][k])
+				{
+					temp=num[i][j];
+					num[i][j]=num[j][k];
+					num[j][k]=temp;
+				}
+			}
+		}
+	}
+
+	displaynumber(num);
+	return 0;
+}
+
+
+void displaynumber(int num[3][3])
+{
+	printf("assending order:-\n");
+	for(int i=1;i<=3;i++)
+	{
+		for(int j=1;j<=3;j++)
+		{
+			printf("%d\t",num[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+
+/*
+ * p-13.c
+ *
+ *  Created on: 15-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int fl(int a[][3],int n)
+{
+	int max=a[0][0];
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+		if(a[i][j]>max);
+		{
+			max=a[i][j];
+		}
+		}
+		printf("\n");
+	}
+	return max;
+}
+
+int fs(int a[][3],int n)
+{
+	int min=a[0][0];
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+		if(a[i][j]<min)
+		{
+			min=a[i][j];
+		}
+		}
+	}
+	return min;
+}
+
+int main()
+{
+	int n;
+	printf("enter your number:-");
+	scanf("%d",&n);
+	int a[n][n];
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+
+	{
+		scanf("%d",&a[i][j]);
+	}
+	}
+	int largest=fl(a,n);
+	int smallest=fs(a,n);
+	printf("largest number:-%d\n",largest);
+	printf("smallest number:-%d\n",smallest);
+	return 0;
+}
+
+/*
+ * p-14.c
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+#include<string.h>
+struct age
+{
+	int bd;
+	int bm;
+	int by;
+	int td;
+	int tm;
+	int ty;
+};
+
+int main()
+
+{
+	struct age a;
+	int r,ar;
+	printf("enter birthday day :-");
+    scanf("%d",&a.bd);
+	printf("enter birthday month :-");
+	scanf("%d",&a.bm);
+	printf("enter birthday year :-");
+	scanf("%d",&a.by);
+	printf("enter today date :-");
+	scanf("%d",&a.td);
+	printf("enter today month :-");
+	scanf("%d",&a.tm);
+	printf("enter today year :-");
+	scanf("%d",&a.tm);
+	printf("enter today year :-");
+	scanf("%d",&a.ty);
+
+	if (a.bm>a.tm)
+	{
+     	r=a.ty-a.by;
+		ar=r-1;
+    	printf("age=%d",ar);
+	}
+	else if(a.bm==a.tm)
+	{
+    	r=a.ty-a.by;
+		ar=r-1;
+		printf("age=%d",ar);
+	}
+
+	else
+	{
+		r=a.ty-a.by;
+        printf("age=%d",r);
+	}
+		return 0;
+}
+
+
+/*
+ * p-15.c
+ *
+ *  Created on: 08-Feb-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+int vd(int day,int month,int year)
+{
+	if(year<1)
+	{
+		return 1;
+	}
+	if(month<1 || month>12)
+	{
+		return 1;
+	}
+	if(day<1 ||day>31)
+	{
+		return 1;
+	}
+	if(month==4||month==6||month==9||month==11)
+	{
+		if(day>30)
+		{
+			return 1;
+		}
+	}
+	if(month==2)
+	{
+		if((year%4==0 && year%100!=0 )||(year%400==0))
+		{
+			if(day>29)
+			{
+				return 1;
+			}
+		}
+		else
+		{
+			if(day>28)
+			{
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
+int main()
+{
+	int day,month,year;
+	printf("enter a date (dd mm yyyy):");
+	scanf("%d %d %d",&day,&month,&year);
+
+	if(vd(day,month,year)==0)
+	{
+		printf("valid date.\n");
+	}
+
+	else
+	{
+		printf("invalid date.\n");
+	}
+	return 0;
+}
+
+/*
+ * p-16.c
+ *
+ *  Created on: 17-Feb-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+struct date
+{
+	int date,month,year;
+
+};
+
+int valid(struct date a,struct date b);
+int date(int d,int m,int y);
+
+
+int main()
+{
+	struct date d, e;
+	int res1,res2;
+	printf("enter date 1 in(dd/mm/yyyy):-");
+	scanf("%d%d%d",&d.date,&d.month,&d.year);
+	printf("enter date 2 in(dd/mm/yyyy ):-");
+	scanf("%d%d%d",&e.date,&e.month,&e.year);
+
+	res1=date(d.date,d.month,d.year);
+	res2=date(e.date,e.month,e.year);
+
+	if(res1==0 && res2==0)
+	{
+		if(valid(d,e)==0)
+		{
+			printf("both are sem");
+		}
+		else
+		{
+			printf("both are not sem");
+		}
+	}
+	else
+	{
+		printf("invalid date");
+	}
+	return 0;
+}
+int valid(struct date a,struct date b)
+
+{
+	if(a.date==b.date)
+	{
+		if(a.month==b.month)
+		{
+			if(a.year==b.year)
+			{
+				return 0;
+			}
+		}
+	}
+	return 1;
+}
+
+int date (int d,int m,int y)
+{
+	if(y>=999 &&y<=9999)
+	{
+		if(m==1||m==3||m==7||m==8||m==12||m==10)
+		{
+			if(d>=1&&d<=31)
+			{
+				return 0;
+			}
+		}
+	}
+		else if(m==11||m==4||m==6||m==9)
+		{
+			if(d>=1 &&d<=30)
+			{
+				return 0;
+			}
+		}
+		else if(m==2)
+		{
+			if(y%4==0)
+			{
+				if(d>=1&&d<=29)
+				{
+					return 0;
+				}
+				else
+				{
+					if(d>=1 && d<=28)
+					{
+						return 0;
+					}
+				}
+			}
+			return 1;
+		}
+	}
+	
+	/*
+ * p-17.c
+ *
+ *  Created on: 09-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+
+struct Time
+{
+	int hour;
+	int minutes;
+	int second;
+};
+
+void input(struct Time *t)
+{
+	printf("enter the hours");
+	scanf("%d",&t->hour);
+	printf("enter the minutes");
+	scanf("%d",&t->minutes);
+	printf("enter the second");
+	scanf("%d",&t->second);
+}
+
+void display(struct Time t)
+{
+	printf("time entered :%d:%d:%d\n",t.hour,t.minutes,t.second);
+}
+
+int validate(struct Time t)
+{
+	if((t.hour>=0 &&t.hour<24)&& (t.minutes>=0&& t.minutes<60)&&(t.second>=0 && t.second<60))
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int main()
+{
+	struct Time userTime;
+	input(&userTime);
+	display(userTime);
+
+	int valid=validate(userTime);
+	if(valid)
+	{
+		printf("valid time enterd\n");
+	}
+	else
+	{
+		printf("invalid entered\n");
+	}
+	return 0;
+}
+
+
+/*
+ * p-18.c
+ *
+ *  Created on: 17-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int prime(int num)
+{
+	int cnt=0;
+	for(int i=1;i<=num;i++)
+	{
+		if(num%i==0)
+		{
+			cnt++;
+		}
+	}
+	if(cnt==2)
+	{
+		return 1;
+	}
+	return 0;
+}
+
+int main()
+{
+	int i,j,r,c,temp,ans,cnt=0;
+	printf("enter rows");
+	scanf("%d",&r);
+	printf("enter column");
+	scanf("%d",&c);
+	int a[r][c];
+	for(i=0;i<r;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+			printf("enter any number");
+			scanf("%d",&a[i][j]);
+		}
+	}
+	for(i=0;i<r;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+			temp=a[i][j];
+			ans=prime(temp);
+			if(ans==1)
+			{
+				cnt++;
+			}
+		}
+	}
+	printf("prime total ans=%d",cnt);
+	return 0;
+}
+
+/*
+ * p-19.c
+ *
+ *  Created on: 09-Feb-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+void febonacci(int n)
+{
+	int f=0,s=1,r;
+	printf("febonacci series up to %d:\n",n);
+    printf("%d,",f);
+
+	r=f+s;
+	while(r<=n)
+	{
+		printf("%d,",r);
+		f=s;
+		s=r;
+		r=f+s;
+
+
+	}
+	printf("\n");
+}
+
+int main()
+{
+	int n;
+	printf("enter the number:-");
+	scanf("%d",&n);
+	febonacci(n);
+	return 0;
+}
+
+/*
+ * p-20.c
+ *
+ *  Created on: 09-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int sumdigit(int n)
+{
+	int sum=0;
+	while(n!=0)
+	{
+		sum+=n%10;
+		n/=10;
+	}
+	return sum;
+}
+int main()
+{
+	int n;
+	printf("enter the digit:-");
+	scanf("%d",&n);
+	int sum=sumdigit(n);
+	printf("sum of all digit %d is %d\n",n,sum);
+
+	return 0;
+}
+
+/*
+ * p-21.c
+ *
+ *  Created on: 03-Feb-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+int displaynumber(int num[3][3],int sum[3]);
+
+int main()
+{
+	int num[3][3],sum[3];
+	printf("enter your metrix value-\n");
+	for(int i=1;i<=3;i++)
+	{
+		for(int j=1;j<=3;j++)
+		{
+			printf("enter the value[%d][%d]:-",i,j);
+			scanf("%d",&num[i][j]);
+		}
+		printf("\n");
+	}
+
+	for(int i=1;i<=3;i++)
+	{
+		for(int j=1;j<=3;j++)
+		{
+			sum[i]=num[i][j]+num[i][j]+num[i][j];
+
+		}
+	}
+	displaynumber(num,sum);
+	return 0;
+}
+
+int displaynumber(int num[3][3],int sum[3])
+{
+	printf("matrix:-\n");
+	for(int i=1;i<=3;i++)
+	{
+		for(int j=1;j<=3;j++)
+		{
+			printf("%d ",num[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("sum of all elements:-\n");
+  for(int i=1;i<=3;i++)
+    {
+
+	printf("%d\n",sum[i]);
+	}
+
+  return 0;
+}
+
+/*
+ * p-22.c
+ *
+ *  Created on: 09-Feb-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+int prime(int n)
+{
+	if(n<=1)
+	{
+		return 0;
+	}
+	int m=n/2;
+	for(int i=2;i<=m;i++)
+	{
+		if(n%2==0)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int main()
+{
+	int n;
+	printf("enter the number:-");
+	scanf("%d",&n);
+	if(prime(n))
+	{
+		printf("%d is prime number\n",n);
+	}
+	else
+	{
+		printf("%d is not a prime number\n",n);
+	}
+	return 0;
+}
+
+/*
+ * p-23.c
+ *
+ *  Created on: 09-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int count(int n)
+{
+	int count=0;
+	while(n!=0)
+	{
+		n=n/10;
+		count++;
+	}
+	return count;
+}
+
+int armstrong (int n)
+{
+	int originalnumber=n;
+	int numdigit=count(n);
+	int sum=0;
+
+	while(n!=0)
+	{
+		int digit=n%10;
+		int cube=digit*digit*digit;
+		sum=sum+cube;
+		n=n/10;
+	}
+	return (sum==originalnumber);
+}
+int main()
+{
+	int n;
+	printf("enter the number:-");
+	scanf("%d",&n);
+
+	if(armstrong(n))
+	{
+		printf("%d is an armstrong number\n",n);
+	}
+	else
+	{
+		printf("%d is not an armstrong \n",n );
+	}
+	return 0;
+}
+
+/*
+ * p-24.c
+ *
+ *  Created on: 30-Jan-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+void patten (int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=i;j<n;j++)
+		{
+			printf("  ");
+		}
+		for(int j=0;j<i;j++)
+		{
+			printf("* ");
+		}
+		for(int j=0;j<i;j++)
+		{
+			printf("* ");
+		}
+		printf("\n");
+	}
+
+}
+
+int main()
+{
+	int n;
+   printf("enter the number:-");
+   scanf("%d",&n);
+
+	patten(n);
+	return 0;
+}
+
+
+/*
+ * p-25.c
+ *
+ *  Created on: 01-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int patten (int n)
+{
+	for(int i=1;i<=5;i++)
+	{
+		for(int j=i;j<=5;j++)
+		{
+			printf("  ");
+		}
+		for(int k=1;k<=2*i-1;k++)
+		{
+			printf("%d ",k);
+		}
+		printf("\n");
+	}
+}
+
+int main()
+{
+	int n=9;
+
+	patten(n);
+	return 0;
+}
+
+/*
+ * p-26.c
+ *
+ *  Created on: 30-Jan-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int fact (int);
+int main()
+{
+	int n,f;
+	printf("enter the number whose factour you need:-");
+	scanf("%d",&n);
+	f=fact(n);
+	printf("factorial=%d",f);
+}
+
+int fact(int n)
+{
+	if(n==0)
+	{
+		return 0;
+	}
+	else if(n==1)
+	{
+		return 1;
+	}
+	else
+	{
+		return n*fact(n-1);
+	}
+}
+
+
+/*
+ * p-27.c
+ *
+ *  Created on: 30-Jan-2024
+ *      Author: root
+ */
+
+#include<stdio.h>
+int fibonacci(int);
+int main()
+{
+	int n,f;
+	printf("enter the value of n:-");
+	scanf("%d",&n);
+	f=fibonacci(n);
+	printf("%d",f);
+}
+int fibonacci(int n)
+{
+	if(n==0)
+	{
+		return 0;
+	}
+	else if(n==1)
+	{
+		return 1;
+	}
+	else
+	{
+		return fibonacci(n-1)+fibonacci(n-2);
+	}
+}
+
+
+/*
+ * p-28.c
+ *
+ *  Created on: 01-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int  multiply(int a,int b);
+
+int main()
+{
+	int num1,num2,result;
+	printf("enter your 1 integer:-");
+	scanf("%d",&num1);
+	printf("enter your 2 integer:-");
+	scanf("%d",&num2);
+	result=multiply(num1,num2);
+			printf("%d",result);
+}
+
+int multiply(int a,int b)
+{
+	if(a==0)
+	{
+		return 0;
+	}
+	else if(b==0)
+	{
+		return 0;
+	}
+	else
+	{
+		return a+multiply(a,b-1);
+	}
+}
+
+/*
+ * p-29.c
+ *
+ *  Created on: 30-Jan-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int sum(int n);
+int main()
+{
+	int number,result;
+	printf("enter a positive integer:-");
+	scanf("%d",&number);
+	result=sum(number);
+
+	printf("sum=%d",result);
+	return 0;
+}
+
+int sum(int n)
+{
+	if(n!=0)
+	{
+		return n+sum(n-1);
+	}
+	else
+	{
+		return n;
+	}
+}
+
+
+/*
+ * p-30.c
+ *
+ *  Created on: 01-Feb-2024
+ *      Author: root
+ */
+
+
+#include<stdio.h>
+int power (int n1,int n2);
+
+int main()
+{
+	int base,a,result;
+	printf("enter the base number:-");
+	scanf("%d",&base);
+	printf("enter power number:-");
+	scanf("%d",&a);
+	result=power(base,a);
+	printf("%d",&result);
+
+	return 0;
+}
+
+int power(int n1,int n2)
+{
+	if(n2!=0)
+	{
+		return n1*power(n1,n2-1);
+	}
+	else
+	{
+		return 1;
+	}
+
+}
+
